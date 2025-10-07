@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .outer{
+            background-color: blanchedalmond;
+            height:460px;
+            width:500px;
+            position: relative;
+            top: 20px;
+            left: 50px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px red;
+    }
+
+            .img1{
+            height:80px;
+            width:80px;
+            border-radius:100px;
+            display: block;
+            position:relative;
+            top:90px;
+            left:10px;
+            }
+             .img2{
+            height:80px;
+            width:80px;
+            border-radius:100px;
+            display: block;
+            position:relative;
+            bottom:5px;
+            left:140px;}
+
+             .img3{
+            height:80px;
+            width:80px;
+            border-radius:100px;
+            display: block;
+            position:relative;
+             bottom:105px;
+            left:270px;}
+
+             .img4{
+            height:80px;
+            width:80px;
+            border-radius:100px;
+            display: block;
+            position:relative;
+            bottom:205px;
+            left:400px;}
+            
+            button{
+                padding: 5px;
+                position:relative;
+                bottom: 200px;
+            }
+
+            .btn1{
+                left:30px;
+                 bottom:240px;  
+            }
+            .btn2{
+                left:160px;  
+                 bottom:270px;
+            }
+            .btn3{
+                
+                bottom:300px;
+                left:290px;  
+            }
+            .btn4{
+                left:420px;
+                bottom:330px;  
+            }
+            .num1{
+                position:relative;
+                left:40px;
+                bottom:190px; 
+            }
+             .num2{
+                position:relative;
+                left:170px;
+                bottom:230px; 
+            }
+             .num3{
+                position:relative;
+                left:310px;
+                bottom:265px; 
+            }
+             .num4{
+                position:relative;
+                left:435px;
+                bottom:300px; 
+            }
+            .head{
+                margin-left:230px;
+                color: aliceblue;
+                font-size:xx-large;
+            }   
+             </style>
+</head>
+<body>
+    <p class="head"><b>Pet Animals</b></p>
+    <div class="outer">
+    <img src="./cat.jpg" class="img1"/><br>
+    <img src="./hen.jpg" class="img2" /><br>
+    <img src="./sheep.jpg" class="img3"/><br>
+    <img src="./dog.jpg" class="img4"/><br>
+    <p class="num1">0</p>
+    <p class="num2">0</p>
+    <p class="num3">0</p>
+    <p class="num4">0</p>
+    <button class="btn1">cat</button><br>
+    <button  class="btn2">hen</button><br>
+    <button  class="btn3">sheep</button><br>
+    <button  class="btn4">dog</button><br>
+    </div>
+    <script>
+    let catBtn = document.querySelector(".btn1");
+    let henBtn = document.querySelector(".btn2");
+    let sheepBtn = document.querySelector(".btn3");
+    let dogBtn = document.querySelector(".btn4");
+
+    let catNum = document.querySelector(".num1");
+    let henNum = document.querySelector(".num2");
+    let sheepNum = document.querySelector(".num3");
+    let dogNum = document.querySelector(".num4");
+    
+    let catCount=0;
+    let henCount=0;
+    let sheepCount=0;
+    let dogCount=0;
+    let totalCount=0;
+
+       
+        catBtn.addEventListener("click", function() {
+            if (totalCount < 50) {
+            catCount++;
+            totalCount++;
+            catNum.innerText = catCount;}
+        });
+
+        henBtn.addEventListener("click", function() {
+            if (totalCount < 50) {
+            henCount++;
+            totalCount++;
+            henNum.innerText = henCount;}
+        });
+
+        sheepBtn.addEventListener("click", function() {
+        if (totalCount < 50) {
+           sheepCount++;
+            totalCount++;
+            sheepNum.innerText = sheepCount;}
+        });
+
+        dogBtn.addEventListener("click", function() {
+            if (totalCount < 50) {
+            dogCount++;
+             totalCount++;
+            dogNum.innerText = dogCount;
+            }
+        });
+        
+    </script>
+</body>
+</html>
