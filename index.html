@@ -1,178 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom</title>
-    <style>
-        body{
-            background-color: black;
-        }
-        .outer{
-            background-color: blanchedalmond;
-            height:460px;
-            width:500px;
-            position: relative;
-            top: 20px;
-            left: 50px;
-            border-radius: 10px;
-            box-shadow: 10px 10px 10px red;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Animals Voting</title>
+<style>
+    body {
+        background-color: black;
+        font-family: Arial, sans-serif;
     }
-
-            .img1{
-            height:80px;
-            width:80px;
-            border-radius:100px;
-            display: block;
-            position:relative;
-            top:90px;
-            left:10px;
-            }
-             .img2{
-            height:80px;
-            width:80px;
-            border-radius:100px;
-            display: block;
-            position:relative;
-            bottom:5px;
-            left:140px;}
-
-             .img3{
-            height:80px;
-            width:80px;
-            border-radius:100px;
-            display: block;
-            position:relative;
-             bottom:105px;
-            left:270px;}
-
-             .img4{
-            height:80px;
-            width:80px;
-            border-radius:100px;
-            display: block;
-            position:relative;
-            bottom:205px;
-            left:400px;}
-            
-            button{
-                padding: 5px;
-               position: absolute;
-                bottom: 200px;
-            }
-
-            .btn1{
-                left:30px;
-                 bottom:240px;  
-            }
-            .btn2{
-                left:160px;  
-                 bottom:270px;
-            }
-            .btn3{
-                
-                bottom:300px;
-                left:290px;  
-            }
-            .btn4{
-                left:420px;
-                bottom:330px;  
-            }
-            .num1{
-                position:relative;
-                left:40px;
-                bottom:190px; 
-            }
-             .num2{
-                position:relative;
-                left:170px;
-                bottom:230px; 
-            }
-             .num3{
-                position:relative;
-                left:310px;
-                bottom:265px; 
-            }
-             .num4{
-                position:relative;
-                left:435px;
-                bottom:300px; 
-            }
-            .head{
-                margin-left:230px;
-                color: aliceblue;
-                font-size:xx-large;
-            }   
-             </style>
+    .outer {
+        background-color: blanchedalmond;
+        height: 500px;
+        width: 520px;
+        position: relative;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px red;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .outer img {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        margin: 10px;
+    }
+    button {
+        padding: 8px 15px;
+        margin: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .count {
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-block;
+        width: 30px;
+    }
+    .head {
+        color: aliceblue;
+        font-size: xx-large;
+        margin-bottom: 20px;
+    }
+</style>
 </head>
 <body>
-    <p class="head"><b>Pet Animals</b></p>
+    <p class="head"><b>Pet Animals Voting</b></p>
     <div class="outer">
-    <img src="./cat.jpg" class="img1"/><br>
-    <img src="./hen.jpg" class="img2" /><br>
-    <img src="./sheep.jpg" class="img3"/><br>
-    <img src="./dog.jpg" class="img4"/><br>
-    <p class="num1">0</p>
-    <p class="num2">0</p>
-    <p class="num3">0</p>
-    <p class="num4">0</p>
-    <button class="btn1">cat</button><br>
-    <button  class="btn2">hen</button><br>
-    <button  class="btn3">sheep</button><br>
-    <button  class="btn4">dog</button><br>
+        <!-- Images -->
+        <img src="cat.jpg" alt="Cat" id="imgCat">
+        <img src="hen.jpg" alt="Hen" id="imgHen">
+        <img src="sheep.jpg" alt="Sheep" id="imgSheep">
+        <img src="dog.jpg" alt="Dog" id="imgDog">
+
+        <br><br>
+
+        <!-- Vote Buttons -->
+        <button id="btnCat">Vote Cat <span class="count" id="numCat">0</span></button>
+        <button id="btnHen">Vote Hen <span class="count" id="numHen">0</span></button>
+        <button id="btnSheep">Vote Sheep <span class="count" id="numSheep">0</span></button>
+        <button id="btnDog">Vote Dog <span class="count" id="numDog">0</span></button>
     </div>
-    <script>
-    let catBtn = document.querySelector(".btn1");
-    let henBtn = document.querySelector(".btn2");
-    let sheepBtn = document.querySelector(".btn3");
-    let dogBtn = document.querySelector(".btn4");
 
-    let catNum = document.querySelector(".num1");
-    let henNum = document.querySelector(".num2");
-    let sheepNum = document.querySelector(".num3");
-    let dogNum = document.querySelector(".num4");
-    
-    let catCount=0;
-    let henCount=0;
-    let sheepCount=0;
-    let dogCount=0;
-    let totalCount=0;
+<script>
+    let catCount = 0, henCount = 0, sheepCount = 0, dogCount = 0, totalCount = 0;
+    const maxVotes = 50;
 
-       
-        catBtn.addEventListener("click", function() {
-            if (totalCount < 50) {
-            catCount++;
-            totalCount++;
-            catNum.innerText = catCount;}
-        });
+    const numCat = document.getElementById("numCat");
+    const numHen = document.getElementById("numHen");
+    const numSheep = document.getElementById("numSheep");
+    const numDog = document.getElementById("numDog");
 
-        henBtn.addEventListener("click", function() {
-            if (totalCount < 50) {
-            henCount++;
-            totalCount++;
-            henNum.innerText = henCount;}
-        });
-
-        sheepBtn.addEventListener("click", function() {
-        if (totalCount < 50) {
-           sheepCount++;
-            totalCount++;
-            sheepNum.innerText = sheepCount;}
-        });
-
-        dogBtn.addEventListener("click", function() {
-            if (totalCount < 50) {
-            dogCount++;
-             totalCount++;
-            dogNum.innerText = dogCount;
-            }
-        });
-        
-    </script>
+    document.getElementById("btnCat").addEventListener("click", () => {
+        if(totalCount < maxVotes) { catCount++; totalCount++; numCat.innerText = catCount; }
+    });
+    document.getElementById("btnHen").addEventListener("click", () => {
+        if(totalCount < maxVotes) { henCount++; totalCount++; numHen.innerText = henCount; }
+    });
+    document.getElementById("btnSheep").addEventListener("click", () => {
+        if(totalCount < maxVotes) { sheepCount++; totalCount++; numSheep.innerText = sheepCount; }
+    });
+    document.getElementById("btnDog").addEventListener("click", () => {
+        if(totalCount < maxVotes) { dogCount++; totalCount++; numDog.innerText = dogCount; }
+    });
+</script>
 </body>
 </html>
-
-
-
-
-
