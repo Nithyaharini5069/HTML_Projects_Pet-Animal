@@ -8,36 +8,40 @@
         body{
             background-color: black;
         }
-       .outer{
-    background-color: blanchedalmond;
-    width:500px;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 10px 10px 10px red;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px; /* space between images, numbers, and buttons */
-}
-
-.img1, .img2, .img3, .img4{
-    height:80px;
-    width:80px;
-    border-radius: 50%;
-}
-
-.num1, .num2, .num3, .num4{
-    font-size: 20px;
-    color: black;
-}
-
-button{
-    padding: 5px 10px;
-    margin: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
+      body {
+        background-color: black;
+        font-family: Arial, sans-serif;
+    }
+    .outer {
+        background-color: blanchedalmond;
+        height: 500px;
+        width: 520px;
+        position: relative;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px red;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .outer img {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        margin: 10px;
+    }
+    button {
+        padding: 8px 15px;
+        margin: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .count {
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-block;
+        width: 30px;
+    }
             .head{
                 margin-left:230px;
                 color: aliceblue;
@@ -111,5 +115,6 @@ button{
     </script>
 </body>
 </html>
+
 
 
